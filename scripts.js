@@ -1,5 +1,5 @@
 function logme(data) {
-  if (typeof console != 'undefined') {
+  if( typeof console != 'undefined') {
     console.log(data);
   }
 }
@@ -22,25 +22,25 @@ function clearRequest(str) {
 function extractUrlParams() {
   var t = location.search.substring(1).split('&');
   var f = [];
-  for (var i=0; i<t.length; i++){
-    var x = t[ i ].split('=');
-    f[x[0]]=x[1];
+  for(var i = 0; i < t.length; i++) {
+    var x = t[i].split('=');
+    f[x[0]] = x[1];
   }
   return f;
 }
 
 $.extend({
-  getUrlVars: function() {
+  getUrlVars : function() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++) {
+    for(var i = 0; i < hashes.length; i++) {
       hash = hashes[i].split('=');
       vars.push(hash[0]);
       vars[hash[0]] = hash[1];
     }
     return vars;
   },
-  getUrlVar: function(name) {
+  getUrlVar : function(name) {
     return $.getUrlVars()[name];
   }
 });

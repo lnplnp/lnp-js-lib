@@ -1,5 +1,5 @@
 /**
- * Compilation 
+ * Compilation of javascript
  * @author Manuel PAYET <manuelpayet@gmail.com>
  */
 

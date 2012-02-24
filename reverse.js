@@ -1,5 +1,5 @@
 /**
- * Compilation of javascript
+ * Reverse everything of javascript
  * @author Manuel PAYET <manuelpayet@gmail.com>
  */
 

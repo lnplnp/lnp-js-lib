@@ -43,6 +43,10 @@ $.extend({
   getUrlVar : function(name) {
     return $.getUrlVars()[name];
   }
+  multicolorMe : function () {
+    $.css({"background-color", "rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + ")",
+      "color", "rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + ")"});
+  }
 });
 
 /**

@@ -29,23 +29,31 @@ function extractUrlParams() {
   return f;
 }
 
-$.extend({
-  getUrlVars : function() {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++) {
-      hash = hashes[i].split('=');
-      vars.push(hash[0]);
-      vars[hash[0]] = hash[1];
+function number() {
+  return Math.floor(Math.random()*255);
+}
+
+jQuery(function($) {
+  $.extend({
+    getUrlVars : function() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+      }
+      return vars;
+    },
+    getUrlVar : function(name) {
+      return $.getUrlVars()[name];
     }
-    return vars;
-  },
-  getUrlVar : function(name) {
-    return $.getUrlVars()[name];
-  }
-  multicolorMe : function () {
-    $.css({"background-color", "rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + ")",
-      "color", "rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + ")"});
+  });
+  $.fn.multicolorMe = function () {
+    $(this).each(function () {
+      $(this).css("background-color", "rgb(" + number() + ", " + number() + ", " + number() + ")")
+        .css("color", "rgb(" + number() + ", " + number() + ", " + number() + ")");
+    });
   }
 });
 

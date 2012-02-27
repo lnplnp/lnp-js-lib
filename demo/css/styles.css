@@ -1,7 +1,10 @@
 /* styles */
 body {
   font-family: monospace;
-  font-size: 12px;
+  font-size: 14px;
   margin: 1em auto;
   width: 75%;
+}
+p {
+  font-size: 2em;
 }

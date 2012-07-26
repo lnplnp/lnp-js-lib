@@ -1,5 +1,6 @@
 function logme(data) {
-  if( typeof console != 'undefined') {
+  if (typeof console != 'undefined') {
+    /* Commenter la ligne suivante pour faire taire tous les logme ;o) */
     console.log(data);
   }
 }

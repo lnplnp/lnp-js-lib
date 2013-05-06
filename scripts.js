@@ -7,13 +7,16 @@ function logme(data) {
 
 /* Assert function for testing your JavaScript */
 function assert(pass, msg){
-  if (document.getElementById('results') == null) {
-    var resultList = document.createElement('ol');
-    resultList.id = 'results';
+  var resultOutput = document.getElementById('results');
+  if (resultOutput == null) {
+    resultOutput = document.createElement('ol');
+    resultOutput.id = 'results';
   }
   var li = document.createElement('li');  
-  li.className = pass ? 'pass' : 'fail';  
+  li.className = pass ? 'text-success' : 'text-error';  
   li.appendChild( document.createTextNode( msg ) );
+  resultOutput.appendChild(li);
+  document.getElementById('demo').appendChild(resultOutput);
 }
 
 function clearRequest(str) {
@@ -47,38 +50,19 @@ function number() {
 
 jQuery(function($) {
   $.extend({
-    /**
-     * returns object with url variables
-     * hash parameters take precedence over search
-     * parameters
-     * @return {Object}
-     */
-    getUrlVars = function () {
-      var loc = document.location,
-        search = loc.search.replace('?', '').split('&'),
-        hash = loc.hash.replace('#', '').split('&'),
-        i, l, v, vars = {};
-  
-      for (i = 0, l = search.length; i < l; i++) {
-        v = search[i].split('=');
-        vars[v[0]] = decodeURI(v[1]);
+    getUrlVars: function(){
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
       }
-  
-      for (i = 0, l = hash.length; i < l; i++) {
-        v = hash[i].split('=');
-        vars[v[0]] = decodeURI(v[1]);
-      }
-  
       return vars;
-    }
-  
-    /**
-     * returns a single value from the getUrlVars hash
-     * @param {String} i The hash index
-     * @return {String}
-     */
-    getUrlVar = function (i) {
-      return $.getUrlVars()[i];
+    },
+    getUrlVar: function(name){
+      return $.getUrlVars()[name];
     }
   });
   $.fn.multicolorMe = function () {
@@ -381,39 +365,3 @@ function RGBColor(color_string) {
   }
 
 }
-
-(function ($) {
-  /**
-   * returns object with url variables
-   * hash parameters take precedence over search
-   * parameters
-   * @return {Object}
-   */
-  $.getUrlVars = function () {
-    var loc = document.location,
-      search = loc.search.replace('?', '').split('&'),
-      hash = loc.hash.replace('#', '').split('&'),
-      i, l, v, vars = {};
-
-    for (i = 0, l = search.length; i < l; i++) {
-      v = search[i].split('=');
-      vars[v[0]] = decodeURI(v[1]);
-    }
-
-    for (i = 0, l = hash.length; i < l; i++) {
-      v = hash[i].split('=');
-      vars[v[0]] = decodeURI(v[1]);
-    }
-
-    return vars;
-  }
-
-  /**
-   * returns a single value from the getUrlVars hash
-   * @param {String} i The hash index
-   * @return {String}
-   */
-  $.getUrlVar = function (i) {
-    return $.getUrlVars()[i];
-  }
-}(jQuery));

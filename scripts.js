@@ -7,13 +7,16 @@ function logme(data) {
 
 /* Assert function for testing your JavaScript */
 function assert(pass, msg){
-  if (document.getElementById('results') == null) {
-    var resultList = document.createElement('ol');
-    resultList.id = 'results';
+  var resultOutput = document.getElementById('results');
+  if (resultOutput == null) {
+    resultOutput = document.createElement('ol');
+    resultOutput.id = 'results';
   }
   var li = document.createElement('li');  
-  li.className = pass ? 'pass' : 'fail';  
+  li.className = pass ? 'text-success' : 'text-error';  
   li.appendChild( document.createTextNode( msg ) );
+  resultOutput.appendChild(li);
+  document.getElementById('demo').appendChild(resultOutput);
 }
 
 function clearRequest(str) {
@@ -361,4 +364,8 @@ function RGBColor(color_string) {
 
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> hotfix/FunctionAssert

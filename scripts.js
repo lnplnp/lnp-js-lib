@@ -5,6 +5,17 @@ function logme(data) {
   }
 }
 
+/* Assert function for testing your JavaScript */
+function assert(pass, msg){
+  if (document.getElementById('results') == null) {
+    var resultList = document.createElement('ol');
+    resultList.id = 'results';
+  }
+  var li = document.createElement('li');  
+  li.className = pass ? 'pass' : 'fail';  
+  li.appendChild( document.createTextNode( msg ) );
+}
+
 function clearRequest(str) {
   // mettre les caracteres en minuscules
   str = str.toLowerCase();

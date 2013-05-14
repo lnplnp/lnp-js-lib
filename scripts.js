@@ -364,8 +364,6 @@ function RGBColor(color_string) {
 
   }
 
-<<<<<<< HEAD
 }
 =======
 }
->>>>>>> hotfix/FunctionAssert

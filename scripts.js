@@ -1,7 +1,7 @@
-function logme(data) {
+function logme(message) {
   if (typeof console != 'undefined') {
     /* Commenter la ligne suivante pour faire taire tous les logme ;o) */
-    console.log(data);
+    console.log(message);
   }
 }
 
@@ -364,8 +364,7 @@ function RGBColor(color_string) {
 
   }
 
-<<<<<<< HEAD
 }
 =======
 }
->>>>>>> hotfix/FunctionAssert
+

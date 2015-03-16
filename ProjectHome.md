@@ -1,0 +1,1 @@
+I copy or "create" some essential functions that I use and want to share with other.
